@@ -1,0 +1,458 @@
+/* =======================
+   ROOT VARIABLES
+======================= */
+:root {
+  --primary: #667eea;
+  --secondary: #764ba2;
+  --info: #05c0ff;
+  --success: #28a745;
+  --danger: #dc3545;
+  --dark: #333;
+  --light-bg: #f8f9fa;
+  --border: #e1e5e9;
+  --text-muted: #6c757d;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 15px;
+
+  --transition: all 0.3s ease;
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* =======================
+   GLOBAL STYLES
+======================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #ffffff;
+  color: var(--dark);
+}
+
+/* =======================
+   NAVBAR
+======================= */
+/* =======================
+   NAVBAR
+======================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #ffffff;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* LOGO / BRAND */
+.navbar .brand {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+/* NAV LINKS */
+.navbar-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.navbar-links a {
+  position: relative;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 8px 4px;
+  transition: all 0.3s ease;
+}
+
+/* UNDERLINE HOVER EFFECT */
+.navbar-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.navbar-links a:hover::after {
+  width: 100%;
+}
+
+.navbar-links a:hover {
+  opacity: 0.85;
+}
+
+/* ACTION BUTTON */
+.navbar button {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+
+  padding: 8px 16px;
+  border-radius: 20px;
+
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navbar button:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+/* =======================
+   MOBILE RESPONSIVE
+======================= */
+.menu-toggle {
+  display: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 20px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 64px;
+    right: 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    display: none;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+}
+
+
+/* =======================
+   LOGIN PAGE
+======================= */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  background: #fff;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+.login-card h2 {
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--border);
+  font-size: 15px;
+  transition: var(--transition);
+}
+
+.form-group input:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+.error-message {
+  background: #fff1f1;
+  border: 1px solid #ffcccc;
+  color: var(--danger);
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.login-footer {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* =======================
+   ADMIN DASHBOARD
+======================= */
+.admin-dashboard {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+}
+
+.admin-dashboard h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =======================
+   TABS
+======================= */
+.admin-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: var(--radius-lg);
+  background: var(--light-bg);
+  box-shadow: var(--shadow-sm);
+}
+
+.admin-tab-btn {
+  flex: 1;
+  max-width: 200px;
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  background: transparent;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.admin-tab-btn:hover {
+  background: rgba(102, 126, 234, 0.1);
+  color: var(--primary);
+}
+
+.admin-tab-btn.active {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff;
+  box-shadow: var(--shadow-md);
+}
+
+/* =======================
+   FORMS
+======================= */
+.admin-form-container,
+.admin-table-container,
+.usage-form {
+  background: var(--light-bg);
+  padding: 30px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+.admin-form-group,
+.usage-form-group {
+  margin-bottom: 18px;
+}
+
+.admin-form-group label,
+.usage-form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.admin-form-group input,
+.admin-form-group select,
+.usage-form-group input,
+.usage-form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--border);
+  background: #fff;
+  transition: var(--transition);
+}
+
+.admin-form-group input:focus,
+.admin-form-group select:focus,
+.usage-form-group input:focus,
+.usage-form-group select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+  outline: none;
+}
+
+/* =======================
+   BUTTONS
+======================= */
+.admin-btn {
+  padding: 14px 26px;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.admin-btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff;
+}
+
+.admin-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.admin-btn-secondary {
+  background: #6c757d;
+  color: #fff;
+}
+
+.admin-btn-secondary:hover {
+  background: #495057;
+}
+
+/* =======================
+   TABLE
+======================= */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.admin-table th {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff;
+  padding: 14px;
+  text-align: left;
+}
+
+.admin-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.admin-table tr:hover {
+  background: rgba(102, 126, 234, 0.05);
+}
+
+/* =======================
+   USAGE RESULT
+======================= */
+.usage-calculation-result {
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+  border-radius: var(--radius-md);
+  background: #eef2ff;
+  border: 2px solid #dbe1ff;
+}
+
+.usage-units-display {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.usage-bill-display {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--success);
+}
+
+/* =======================
+   RESPONSIVE
+======================= */
+@media (max-width: 768px) {
+  .admin-tabs {
+    flex-direction: column;
+  }
+
+  .admin-dashboard {
+    margin: 10px;
+    padding: 20px;
+  }
+
+  .login-card {
+    padding: 30px;
+  }
+}
